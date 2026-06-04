@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Fitness - Elite Starter Package</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js CDN for interactive modal & form states -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 antialiased" x-data="{ isOpen: false, isSubmitted: false, name: '', email: '' }">
+
+    <!-- Header / Navigation -->
+    <header class="border-b border-zinc-900 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <!-- Gym Logo -->
+                <span class="text-emerald-500 font-extrabold text-2xl tracking-wider">APEX<span class="text-white">FIT</span></span>
+            </div>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
+                <a href="#package" class="hover:text-emerald-400 transition">The Package</a>
+                <a href="#benefits" class="hover:text-emerald-400 transition">Benefits</a>
+                <a href="#testimonials" class="hover:text-emerald-400 transition">Reviews</a>
+            </nav>
+            <div>
+                <button @click="isOpen = true" class="bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-semibold px-5 py-2.5 rounded-full text-sm transition shadow-lg shadow-emerald-500/20">
+                    Claim Package
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative overflow-hidden py-20 lg:py-32 border-b border-zinc-900">
+            <!-- Background glow decoration -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <span class="inline-flex items-center gap-1.5 py-1 px-3 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                            Limited Time Offer
+                        </span>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                            Transform Your Routine.<br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">Unlock Your Potential.</span>
+                        </h1>
+                        <p class="text-lg text-zinc-400 max-w-xl mx-auto lg:mx-0">
+                            Get started with our premium training package. Designed to provide the coaching, access, and support needed to establish consistent habits.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                            <!-- CTA Button leading to Popup -->
+                            <button @click="isOpen = true" class="bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold px-8 py-4 rounded-xl text-base transition duration-200 shadow-xl shadow-emerald-500/20 transform hover:-translate-y-0.5">
+                                Get Started Online — $49/mo
+                            </button>
+                            <a href="#package" class="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-semibold px-8 py-4 rounded-xl text-base transition text-center">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 relative">
+                        <!-- Hero Image / Visual Element -->
+                        <div class="relative mx-auto max-w-[400px] lg:max-w-none">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-emerald-500 to-teal-500 rounded-3xl rotate-3 scale-[1.02] opacity-20 blur-lg"></div>
+                            <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=800" alt="Gym training session" class="relative rounded-3xl object-cover w-full h-[450px] border border-zinc-800 shadow-2xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Package Details Section -->
+        <section id="package" class="py-20 bg-zinc-950/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">The Kickstart Package</h2>
+                    <p class="text-zinc-400">Everything you need to begin your fitness path under one simple monthly membership.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-zinc-900/50 border border-zinc-800 p-8 rounded-2xl space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                            <!-- Clock Icon -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">24/7 Facility Access</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Train on your schedule. Enjoy full keycard access to all strength, cardio, and recovery zones at any hour of the day.</p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-zinc-900/50 border border-zinc-800 p-8 rounded-2xl space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                            <!-- User Icon -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Personal Training Sessions</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Includes two 1-on-1 sessions with a certified trainer to assess your baseline and map out a custom workout plan.</p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-zinc-900/50 border border-zinc-800 p-8 rounded-2xl space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                            <!-- Shield/Check Icon -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Nutrition Support</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Receive a personalized starter guide with macronutrient targets tailored to your dynamic energy expenditure goals.</p>
+                    </div>
+                </div>
+
+                <!-- Secondary CTA banner -->
+                <div class="mt-16 bg-gradient-to-r from-zinc-900 to-zinc-900/40 border border-zinc-800 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Ready to claim your spot?</h3>
+                        <p class="text-zinc-400 text-sm">Sign up takes less than 2 minutes. No hidden activation fees.</p>
+                    </div>
+                    <button @click="isOpen = true" class="bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold px-8 py-4 rounded-xl text-sm transition shrink-0 whitespace-nowrap shadow-lg shadow-emerald-500/10">
+                        Join Now
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-zinc-900 py-12 bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <span class="text-emerald-500 font-extrabold text-xl tracking-wider">APEX<span class="text-white">FIT</span></span>
+                <p class="text-zinc-500 text-xs">&copy; 2025 Apex Fitness. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- POP-UP MODAL (Form & Thank You Flow) -->
+    <div 
+        x-show="isOpen" 
+        class="fixed inset-0 z-50 flex items-center justify-center p-4"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        style="display: none;"
+    >
+        <!-- Backdrop Overlay -->
+        <div class="absolute inset-0 bg-zinc-950/80 backdrop-blur-sm" @click="isOpen = false; if(isSubmitted) { isSubmitted = false; name=''; email='' }"></div>
+
+        <!-- Modal Box -->
+        <div 
+            class="relative bg-zinc-900 border border-zinc-800 rounded-3xl w-full max-w-lg p-6 sm:p-10 shadow-2xl overflow-hidden"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="scale-95 translate-y-4"
+            x-transition:enter-end="scale-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="scale-100 translate-y-0"
+            x-transition:leave-end="scale-95 translate-y-4"
+        >
+            <!-- Close Button -->
+            <button 
+                @click="isOpen = false; if(isSubmitted) { isSubmitted = false; name=''; email='' }" 
+                class="absolute top-4 right-4 text-zinc-400 hover:text-white p-2 rounded-full hover:bg-zinc-800 transition"
+                aria-label="Close modal"
+            >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <!-- STATE A: Sign-Up Form -->
+            <div x-show="!isSubmitted">
+                <div class="text-center mb-6">
+                    <h3 class="text-2xl font-bold text-white mb-2">Claim Your Package</h3>
+                    <p class="text-zinc-400 text-sm">Enter your details to register for the Elite Starter Pack.</p>
+                </div>
+
+                <form @submit.prevent="isSubmitted = true" class="space-y-4">
+                    <!-- Name Input -->
+                    <div>
+                        <label for="name" class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Full Name</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            x-model="name"
+                            required
+                            placeholder="John Doe" 
+                            class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-emerald-500 transition text-sm"
+                        >
+                    </div>
+
+                    <!-- Email Input -->
+                    <div>
+                        <label for="email" class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Email Address</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            x-model="email"
+                            required
+                            placeholder="name@example.com" 
+                            class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-emerald-500 transition text-sm"
+                        >
+                    </div>
+
+                    <!-- Phone Input -->
+                    <div>
+                        <label for="phone" class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Phone Number</label>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            required
+                            placeholder="(555) 000-0000" 
+                            class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-emerald-500 transition text-sm"
+                        >
+                    </div>
+
+                    <!-- Selected package preview -->
+                    <div class="bg-zinc-950/60 p-4 rounded-xl border border-zinc-800/80 flex justify-between items-center text-xs">
+                        <div>
+                            <p class="font-semibold text-white">Elite Starter Package</p>
+                            <p class="text-zinc-500">Includes 24/7 Access + Trainer Sessions</p>
+                        </div>
+                        <span class="text-emerald-400 font-bold">$49/mo</span>
+                    </div>
+
+                    <button 
+                        type="submit" 
+                        class="w-full bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold py-3.5 rounded-xl transition text-sm shadow-lg shadow-emerald-500/10 mt-6"
+                    >
+                        Confirm Registration
+                    </button>
+                    
+                    <p class="text-[11px] text-zinc-500 text-center mt-2">
+                        By signing up, you agree to our Terms of Service and Privacy Policy.
+                    </p>
+                </form>
+            </div>
+
+            <!-- STATE B: Thank You View (Renders post-signup) -->
+            <div x-show="isSubmitted" class="text-center py-6 space-y-6" style="display: none;">
+                <div class="mx-auto w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center text-emerald-400">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                
+                <div class="space-y-2">
+                    <h3 class="text-2xl font-bold text-white">You're All Set, <span x-text="name" class="text-emerald-400"></span>!</h3>
+                    <p class="text-zinc-400 text-sm max-w-sm mx-auto">
+                        Your registration has been processed successfully. We've sent a verification email to <span class="text-white font-medium" x-text="email"></span> with your access steps.
+                    </p>
+                </div>
+
+                <div class="bg-zinc-950/50 p-4 rounded-2xl border border-zinc-850/80 text-left space-y-3 max-w-sm mx-auto">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider">Next Steps:</h4>
+                    <ul class="text-xs text-zinc-400 space-y-2">
+                        <li class="flex items-start gap-2">
+                            <span class="text-emerald-400 font-bold">1.</span> Check your inbox for your digital member barcode.
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-emerald-400 font-bold">2.</span> Book your initial physical assessment via the portal link.
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-emerald-400 font-bold">3.</span> Visit the front desk on your first visit to pick up your physical fob.
+                        </li>
+                    </ul>
+                </div>
+
+                <button 
+                    @click="isOpen = false; isSubmitted = false; name=''; email=''" 
+                    class="bg-zinc-800 hover:bg-zinc-700 text-white font-semibold px-6 py-2.5 rounded-xl text-sm transition"
+                >
+                    Close Window
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
