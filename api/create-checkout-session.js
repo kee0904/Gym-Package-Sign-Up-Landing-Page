@@ -60,7 +60,7 @@ module.exports = async function handler(req, res) {
       `https://${req.headers["x-forwarded-host"] || req.headers.host}`;
 
     const session = await stripe.checkout.sessions.create({
-      mode: "subscription",
+      mode: "payment",
       customer_email: email,
       client_reference_id: email,
       line_items: [
@@ -68,12 +68,9 @@ module.exports = async function handler(req, res) {
           price_data: {
             currency: "usd",
             unit_amount: 100,
-            recurring: {
-              interval: "month"
-            },
             product_data: {
               name: "Apex Fit Elite Starter Package",
-              description: "Monthly membership with 24/7 access, two personal training sessions, and nutrition support."
+              description: "One-time starter package with 24/7 access, two personal training sessions, and nutrition support."
             }
           },
           quantity: 1
@@ -82,12 +79,6 @@ module.exports = async function handler(req, res) {
       metadata: {
         name,
         phone
-      },
-      subscription_data: {
-        metadata: {
-          name,
-          phone
-        }
       },
       success_url: `${baseUrl}/?checkout=success`,
       cancel_url: `${baseUrl}/?checkout=cancel`
