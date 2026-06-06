@@ -1,0 +1,11 @@
+{
+  "name": "gym-package-sign-up-landing-page",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "check": "node --check api/create-checkout-session.js"
+  },
+  "dependencies": {
+    "stripe": "^16.12.0"
+  }
+}
