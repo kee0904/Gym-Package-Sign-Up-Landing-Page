@@ -22,5 +22,5 @@ If `SITE_URL` is not set, the checkout function will use the deployed Vercel hos
 
 1. Customer enters their name, email, and phone number.
 2. The form still sends the registration to the existing Google Sheet script.
-3. The site creates a Stripe Checkout session for the $49/month Elite Starter Package.
+3. The site creates a Stripe Checkout session for the $1/month Elite Starter Package.
 4. Stripe redirects the customer back to the landing page after payment or cancellation.

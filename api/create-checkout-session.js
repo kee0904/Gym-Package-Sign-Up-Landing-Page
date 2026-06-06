@@ -67,7 +67,7 @@ module.exports = async function handler(req, res) {
         {
           price_data: {
             currency: "usd",
-            unit_amount: 4900,
+            unit_amount: 100,
             recurring: {
               interval: "month"
             },
